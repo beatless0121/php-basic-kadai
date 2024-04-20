@@ -3,9 +3,9 @@
 session_start();
 
 // POSTリクエストから入力データを取得
-$name = $_POST['user_name'];
-$age = $_POST['user_age'];
-$category = $_POST['category'];
+$name = $_POST['employee_name'];
+$age = $_POST['employee_age'];
+$department = $_POST['department'];
 
 // エラーメッセージを格納する配列
 $errors = []; // 最初はエラーなし
@@ -26,7 +26,7 @@ if (empty($age) ) {
     // セッション変数を保存
     $_SESSION['name'] = $name;
     $_SESSION['age'] = $age;
-    $_SESSION['category'] = $category;
+    $_SESSION['department'] = $department;
 
     // クッキーを登録（有効期限は1時間）
     setcookie('name', $name, time() + 3600 );
@@ -61,7 +61,7 @@ if (empty($age) ) {
         </tr>
         <tr>
             <td>所属部署</td>
-            <td><?php echo $category; ?></td>
+            <td><?php echo $department; ?></td>
         </tr>
     </table>
 
